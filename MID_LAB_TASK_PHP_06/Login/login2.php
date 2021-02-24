@@ -1,38 +1,73 @@
 <?php
-	
-	if(isset($_POST['submit']))
-	{
+    if(isset($_POST['submit']))
+    {
+        if(isset($_POST['name']) && isset($_POST['password']))
+        {
+            $username = $_POST['name'];
+            $password = $_POST['password'];
+            
+            $capitalLetters = false;
+            $smallLetters = false;
+            $numbers = false;
+            $underScore = false;
+            $period = false;
+            $dash = false;
+    
+            for($i=0;$i<strlen($username);$i++)
+            {
+                if((ord($username[$i]) >= 97 && ord($username[$i]) <= 122) || (ord($username[$i]) >= 65 && ord($username[$i]) <= 90) || (ord($username[$i]) >= 48 && ord($username[$i]) <= 57) || ($username[$i] == '.') || ($username[$i] == '-') || ($username[$i] == '_'))
+                {
+                    $capitalLetters = true;
+                    $smallLetters = true;
+                    $numbers = true;
+                    $period = true;
+                    $dash = true;
+                    $underScore = true;
+                }
+                else
+                {
+                    echo "User Name can contain alpha numeric characters, period, dash or underscore only";
+                    return;
+                }
 
-		$name 		= $_POST['myname'];
-		$password 	= $_POST['password'];
+            }
+            if(strlen($username)<2)
+              {
+                echo "Username is  Unvalid.";
+              }
+            else
+            {
+                  true;
+            }
+            if(strlen($password)<8)
+              {
+                echo "Password is too weak,Please Change.";
+              }
+            else
+            {
+                  true;
+            }
+            
+            $Ch=false;
+            
+            for($j=0;$j<strlen($password);$j++)
+            {
+                if(($password[$j] == '@') || ($password[$j] == '#') || ($password[$j] == '$') || ($password[$j] == '%'))
+                {
+                    $Ch=true;
+                    break;
+                }
+    
+            }
 
-		if($name == "" || $password == ""){
-			echo "null submission";
-		}else{
-			echo "success...";
-		}
-	}else{
-		echo "Invalid request...";
-	}
+            if($Ch==false)
+            {
+                echo "Password is Unvaild.";
+                return;
+            }
+            
+
+        }
+        
+    }
 ?>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Name input</title>
-</head>
-<body>
-
-	<form method="POST" action="">
-		<fieldset>
-			<legend>LOGIN</legend>
-			Username: <input type="text" name="myname" value="<?php if(isset($_POST['myname'])){ echo $_POST['myname']; }?>">  <br>
-			Password: <input type="password" name="password" value="<?php if(isset($_POST['password'])){ echo $_POST['password']; }?>"> <br>
-            <input type="checkbox" name="Remember ME" value="">
-            <label for="Remember ME"> Remember ME</label><br>
-				<input type="submit" name="submit" value="Submit">
-		</fieldset>
-	</form>
-</body>
-</html>
