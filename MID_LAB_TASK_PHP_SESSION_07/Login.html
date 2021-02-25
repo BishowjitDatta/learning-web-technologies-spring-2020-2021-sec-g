@@ -29,18 +29,25 @@
 
         <tr>
             <td>
-                <form method="POST" action="login2.php">
+                <form class="" action="LoginChk.php" method="post">
                     <fieldset>
-                        <legend>LOGIN</legend>
-                        Username: <input type="text" name="name" value="">  <br>
-                        Password: <input type="password" name="password" value=""> <br>
-                        <input type="checkbox" name="Remember ME" value="">
-                        <label for="Remember ME"> Remember ME</label><br>
-                        </hr>  <hr>
-                        <input type="submit" name="submit" value="Submit">
-                        <a href="ForgotPass.html">Forgot Password?</a>
+                      <legend>LOGIN</legend>
+                      <table>
+                        <tr>
+                          <td>User Name:</td>
+                          <td><input type="text" name="username" value=""></td>
+                        </tr>
+                        <tr>
+                          <td>Password:</td>
+                          <td><input type="password" name="password" value=""></td>
+                        </tr>
+                      </table>
+                      <input type="checkbox" name="" value=""> Remember Me <br>
+                      <br>
+                      <input type="submit" name="submit" value="Submit">
+                      <a href="ForgotPassword.html">Forgot Password?</a>
                     </fieldset>
-                </form>
+                  </form>
             </td>
         </tr>
                
