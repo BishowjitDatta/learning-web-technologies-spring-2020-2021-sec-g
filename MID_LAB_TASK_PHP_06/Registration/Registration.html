@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <form method="POST" action="Registration.php">
+        <fieldset>
+            <legend>REGISTRATION</legend>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td> <input type="text" name="name" value="" placeholder="Name"/></td><br>       
+
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>Email:</td>
+                <td> <input type="email" name="email" value="" placeholder="Email"/></td><br>
+             
+           </tr>
+        </table>
+
+        <tr>
+            <td width="30%" height="30px">User Name</td>
+            <td width="60%" height="30px">:<input type="text" name="user" value=""></td><br>
+        </tr>
+        <tr>
+           
+        </tr>
+        <tr>
+            <td width="30%" height="30px">Password</td>
+            <td width="60%" height="30px">:<input type="password" name="password"></td><br>
+        </tr>
+        <tr>
+            
+        </tr>
+        <tr>
+            <td width="30%" height="30px">Confirm Password</td>
+            <td width="60%" height="30px">:<input type="password" name="confirm"></td><br>
+        </tr>
+        <tr>
+            
+        </tr>
+        
+        <table> 
+            <tr>
+                <td width="30%" height="30px">
+                <fieldset>
+                <legend>Gender</legend>
+                <input type="radio" value="M"<?php if (isset($_POST['gender']) && $_POST['gender'] == "M") echo "checked"; ?>>Male
+                <input type="radio" value="F"<?php if (isset($_POST['gender1']) && $_POST['gender1'] == "F") echo "checked"; ?>>Female
+                <input type="radio" value="O"<?php if (isset($_POST['gender2']) && $_POST['gender2'] == "O") echo "checked"; ?>>Other
+                </fieldset>
+                </td>
+            </tr>
+            <tr>
+                
+            </tr>
+        </table>
+
+
+        <table>
+            <tr>
+                <td>DOB:</td>
+                <td> <input type="date" name="dob" value="<?php if(isset($_POST['dob'])){ echo $_POST['dob']; }?>" placeholder="dob" /></td>      
+              </tr>  
+        </table>
+
+       <table>
+        <tr>
+            <td><input type="submit" name="" value="Submit"></td>
+            <td><input type="reset" name="reset" value="Reset"></td>
+        </tr>
+    </table>
+
+    </fieldset>
+    </form>
+</body>
+</html>
