@@ -1,6 +1,6 @@
 <?php
-	$myfile = fopen('../model/user.json', 'r');
-	$data = fread($myfile, filesize('../model/user.json'));
+	$myfile = fopen('../model/userinfo.json', 'r');
+	$data = fread($myfile, filesize('../model/userinfo.json'));
 
 	if(isset($_POST['submit'])){
 
@@ -11,7 +11,7 @@
 			echo "null submission...";
 		}else{
 			$user = json_decode($data, true);
-			if($username == $users['username'] && $password == $users['password']){
+			if($username == $user['username'] && $password == $user['password']){
 				header('location: ../view/home.php');
 			}else{
 				echo "invalid user";
