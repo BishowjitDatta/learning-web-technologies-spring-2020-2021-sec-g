@@ -1,5 +1,4 @@
 <?php
-	session_start();
 
 	if(isset($_POST['signup'])){
 
@@ -14,15 +13,16 @@
 
 			if($password == $repass){
 
-				$user = [	
-							'username'=>$username, 
-							'password'=>$password, 
+				$users = [
+							'username'=>$username,
+							'password'=>$password,
 							'email'=> $email
 						];
 
-				//$_SESSION['username'] = $username;
-				//$_SESSION['password'] = $password;
-				$_SESSION['current_user'] = $user;
+				$data = json_encode($users);
+				$userData = fopen("../model/userinfo.json", "w");
+				fwrite($userData, $data);
+				fclose($userData);
 
 				header('location: ../view/login.html');
 			}else{
