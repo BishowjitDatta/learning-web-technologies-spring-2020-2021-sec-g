@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	$myfile = fopen('../model/user.json', 'r');
+	$data = fread($myfile, filesize('../model/user.json'));
 
 	if(isset($_POST['submit'])){
 
@@ -9,10 +10,8 @@
 		if($username == "" || $password == ""){
 			echo "null submission...";
 		}else{
-			$user = $_SESSION['current_user'];
-
-			if($username == $user['username'] && $password == $user['password']){
-				$_SESSION['flag'] = true;
+			$user = json_decode($data, true);
+			if($username == $users['username'] && $password == $users['password']){
 				header('location: ../view/home.php');
 			}else{
 				echo "invalid user";
